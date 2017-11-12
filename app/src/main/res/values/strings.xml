@@ -1,4 +1,29 @@
 <resources>
     <string name="app_name" translatable="false">Super Converter</string>
 
+    <!-- UnitType -->
+    <string name="unit_type_pressure">Ciśnienie</string>
+    <string name="unit_type_time">Czas</string>
+    <string name="unit_type_length">Długość</string>
+    <string name="unit_type_energy">Energia</string>
+    <string name="unit_type_quantity">Ilość</string>
+    <string name="unit_type_mass">Masa</string>
+    <string name="unit_type_volume">Objętość</string>
+    <string name="unit_type_area">Powierzchnia</string>
+    <string name="unit_type_speed">Prędkość</string>
+    <string name="unit_type_data">Jednostki danych</string>
+    <string name="unit_type_temperature">Temperatura</string>
+
+    <!-- LengthUnitGroup -->
+    <string name="unit_group_length_meter">Metr</string>
+    <string name="unit_group_length_kilometer">Kilometr</string>
+    <string name="unit_group_length_mile">Mila</string>
+    <string name="unit_group_length_inch">Cal</string>
+
+    <!-- MassUnitGroup -->
+    <string name="unit_group_mass_kilogram">Kilogram</string>
+    <string name="unit_group_mass_gram">Gram</string>
+    <string name="unit_group_mass_ton">Tona</string>
+    <string name="unit_group_mass_pound">Funt</string>
+    <string name="unit_group_mass_ounce">Uncja</string>
 </resources>
