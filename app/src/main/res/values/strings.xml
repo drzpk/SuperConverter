@@ -14,6 +14,10 @@
     <string name="unit_type_data">Jednostki danych</string>
     <string name="unit_type_temperature">Temperatura</string>
 
+    <!-- BaseUnitGroup -->
+    <string name="unit_group_category_metric">System metryczny</string>
+    <string name="unit_group_category_english">Miary anglosaskie</string>
+
     <!-- LengthUnitGroup -->
     <string name="unit_group_length_meter">Metr</string>
     <string name="unit_group_length_kilometer">Kilometr</string>

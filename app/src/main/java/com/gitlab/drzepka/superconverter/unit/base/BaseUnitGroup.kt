@@ -17,4 +17,19 @@ abstract class BaseUnitGroup {
 
         units.add(unit)
     }
+
+    /**
+     * Zwraca jednostki pogrupowane według kategorii, do których należą. Jednostki nie należące do żadnej grupy
+     * będą miały klucz ustawiony na `null`.
+     */
+    fun groupByCategory(): Map<UnitCategory?, ArrayList<Unit>> {
+        val map = HashMap<UnitCategory?, ArrayList<Unit>>()
+        units.forEach {
+            if (!map.containsKey(it.category))
+                map[it.category] = ArrayList()
+            map[it.category]?.add(it)
+        }
+
+        return map
+    }
 }
