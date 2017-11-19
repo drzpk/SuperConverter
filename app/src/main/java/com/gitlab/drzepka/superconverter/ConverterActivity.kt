@@ -17,8 +17,8 @@ class ConverterActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
     private lateinit var drawerToggle: ActionBarDrawerToggle
     private lateinit var upperHolder: FrameLayout
     private lateinit var lowerHolder: FrameLayout
-    private lateinit var leftUnit: UnitConvertionLayout
-    private lateinit var rightUnit: UnitConvertionLayout
+    private lateinit var leftUnit: UnitConversionLayout
+    private lateinit var rightUnit: UnitConversionLayout
 
     private lateinit var drawerAdapter: DrawerAdapter
 
@@ -33,8 +33,8 @@ class ConverterActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         drawerToggle = ActionBarDrawerToggle(this, drawerLayout, android.R.string.unknownName, android.R.string.unknownName)
         drawerLayout.addDrawerListener(drawerToggle)
 
-        leftUnit = findViewById(R.id.converter_unit_convertion_left)
-        rightUnit = findViewById(R.id.converter_unit_convertion_right)
+        leftUnit = findViewById(R.id.converter_unit_conversion_left)
+        rightUnit = findViewById(R.id.converter_unit_conversion_right)
 
         upperHolder = findViewById(R.id.converter_unit_holder_1)
         lowerHolder = findViewById(R.id.converter_unit_holder_2)

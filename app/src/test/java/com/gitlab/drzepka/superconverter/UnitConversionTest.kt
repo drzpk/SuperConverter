@@ -6,7 +6,7 @@ import org.junit.Assert
 import org.junit.Test
 import java.util.*
 
-class UnitConvertionTest {
+class UnitConversionTest {
 
     companion object {
         /** Maksymalny błąd bezwsględny. */
@@ -16,7 +16,7 @@ class UnitConvertionTest {
     }
 
     @Test
-    fun lengthConvertion() {
+    fun lengthConversion() {
         val type = UnitType.LENGTH
         check("km", "m", 1000.0, type)
         check("m", "in", 39.3700787, type)
@@ -24,7 +24,7 @@ class UnitConvertionTest {
     }
 
     @Test
-    fun massConvertion() {
+    fun massConversion() {
         val type = UnitType.MASS
         check("t", "kg", 1000.0, type)
         check("oz", "g", 28.3495231, type)

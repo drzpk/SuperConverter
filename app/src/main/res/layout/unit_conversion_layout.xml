@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.gitlab.drzepka.superconverter.UnitConvertionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.gitlab.drzepka.superconverter.UnitConversionLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                                         xmlns:tools="http://schemas.android.com/tools"
                                                         android:layout_width="match_parent"
-                                                        android:layout_height="?attr/unit_convertion_layout_height"
+                                                        android:layout_height="?attr/unit_conversion_layout_height"
                                                         android:orientation="horizontal">
 
     <EditText
-        android:id="@+id/unit_convertion_layout_text"
+        android:id="@+id/unit_conversion_layout_text"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="0.8"
@@ -20,7 +20,7 @@
         tools:text="0.25" />
 
     <TextView
-        android:id="@+id/unit_convertion_layout_unit"
+        android:id="@+id/unit_conversion_layout_unit"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:background="@drawable/background_round_border_right"
@@ -31,4 +31,4 @@
         android:textSize="13sp"
         tools:text="kg" />
 
-</com.gitlab.drzepka.superconverter.UnitConvertionLayout>
+</com.gitlab.drzepka.superconverter.UnitConversionLayout>

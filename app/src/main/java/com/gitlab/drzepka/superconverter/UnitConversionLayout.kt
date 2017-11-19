@@ -9,13 +9,13 @@ import com.gitlab.drzepka.superconverter.unit.base.BaseUnitGroup
 import com.gitlab.drzepka.superconverter.unit.base.Unit
 import com.gitlab.drzepka.superconverter.unit.base.UnitCategory
 
-class UnitConvertionLayout : LinearLayout {
+class UnitConversionLayout : LinearLayout {
 
     constructor(context: Context?) : super(context)
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
 
-    private val text by lazy { findViewById<EditText>(R.id.unit_convertion_layout_text) }
-    private val unitText by lazy { findViewById<TextView>(R.id.unit_convertion_layout_unit) }
+    private val text by lazy { findViewById<EditText>(R.id.unit_conversion_layout_text) }
+    private val unitText by lazy { findViewById<TextView>(R.id.unit_conversion_layout_unit) }
 
     var value = 0.0
         set(value) {

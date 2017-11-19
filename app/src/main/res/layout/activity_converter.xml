@@ -54,10 +54,10 @@
             tools:ignore="ContentDescription" />
 
         <include
-            android:id="@+id/converter_unit_convertion_left"
-            layout="@layout/unit_convertion_layout"
+            android:id="@+id/converter_unit_conversion_left"
+            layout="@layout/unit_conversion_layout"
             android:layout_width="0dp"
-            android:layout_height="?unit_convertion_layout_height"
+            android:layout_height="?attr/unit_conversion_layout_height"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
@@ -81,10 +81,10 @@
             tools:ignore="ContentDescription" />
 
         <include
-            android:id="@+id/converter_unit_convertion_right"
-            layout="@layout/unit_convertion_layout"
+            android:id="@+id/converter_unit_conversion_right"
+            layout="@layout/unit_conversion_layout"
             android:layout_width="0dp"
-            android:layout_height="?unit_convertion_layout_height"
+            android:layout_height="?attr/unit_conversion_layout_height"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
