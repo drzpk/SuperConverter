@@ -10,17 +10,17 @@
         android:id="@+id/unit_list_item_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/unit_group_mass_kilogram"
         android:textColor="@android:color/black"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        tools:text="@string/unit_group_mass_kilogram" />
 
     <TextView
         android:id="@+id/unit_list_item_system"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/unit_group_system_metric"
         android:textColor="@android:color/darker_gray"
         android:textSize="10sp"
-        tools:ignore="SmallSp" />
+        tools:ignore="SmallSp"
+        tools:text="@string/unit_group_system_metric" />
 
 </LinearLayout>
