@@ -18,6 +18,8 @@ class ConverterActivity : AppCompatActivity() {
 
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var drawerToggle: ActionBarDrawerToggle
+    private lateinit var leftUnit: UnitConvertionLayout
+    private lateinit var rightUnit: UnitConvertionLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +30,9 @@ class ConverterActivity : AppCompatActivity() {
         list.adapter = DrawerAdapter()
         drawerToggle = ActionBarDrawerToggle(this, drawerLayout, android.R.string.unknownName, android.R.string.unknownName)
         drawerLayout.addDrawerListener(drawerToggle)
+
+        leftUnit = findViewById(R.id.converter_unit_convertion_left)
+        rightUnit = findViewById(R.id.converter_unit_convertion_right)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
@@ -48,6 +53,11 @@ class ConverterActivity : AppCompatActivity() {
             return true
 
         return super.onOptionsItemSelected(item)
+    }
+
+    @Suppress("UNUSED_PARAMETER")
+    fun swapUnits(view: View) {
+
     }
 
     inner class DrawerAdapter : BaseAdapter() {
