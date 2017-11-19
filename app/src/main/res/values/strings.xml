@@ -30,4 +30,7 @@
     <string name="unit_group_mass_ton">Tona</string>
     <string name="unit_group_mass_pound">Funt</string>
     <string name="unit_group_mass_ounce">Uncja</string>
+
+    <!-- ChooseUnitDialog -->
+    <string name="choose_unit_dialog_title">Wybierz nową jednostkę</string>
 </resources>

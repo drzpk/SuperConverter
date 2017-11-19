@@ -8,18 +8,19 @@ import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.ImageView
-import android.widget.ListView
-import android.widget.TextView
+import android.widget.*
 import com.gitlab.drzepka.superconverter.unit.base.UnitType
 
-class ConverterActivity : AppCompatActivity() {
+class ConverterActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
 
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var drawerToggle: ActionBarDrawerToggle
+    private lateinit var upperHolder: FrameLayout
+    private lateinit var lowerHolder: FrameLayout
     private lateinit var leftUnit: UnitConvertionLayout
     private lateinit var rightUnit: UnitConvertionLayout
+
+    private lateinit var drawerAdapter: DrawerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,12 +28,18 @@ class ConverterActivity : AppCompatActivity() {
 
         drawerLayout = findViewById(R.id.converter_drawer)
         val list = findViewById<ListView>(R.id.converter_drawer_list)
-        list.adapter = DrawerAdapter()
+        drawerAdapter = DrawerAdapter()
+        list.adapter = drawerAdapter
         drawerToggle = ActionBarDrawerToggle(this, drawerLayout, android.R.string.unknownName, android.R.string.unknownName)
         drawerLayout.addDrawerListener(drawerToggle)
 
         leftUnit = findViewById(R.id.converter_unit_convertion_left)
         rightUnit = findViewById(R.id.converter_unit_convertion_right)
+
+        upperHolder = findViewById(R.id.converter_unit_holder_1)
+        lowerHolder = findViewById(R.id.converter_unit_holder_2)
+        upperHolder.setOnClickListener { onHolderClick(true) }
+        lowerHolder.setOnClickListener { onHolderClick(false) }
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
@@ -55,8 +62,25 @@ class ConverterActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    /**
+     * Wywoływana, gdy przycisk (strzałki) do zmiany kolejności jednostek zostanie wciśnięty.
+     */
     @Suppress("UNUSED_PARAMETER")
     fun swapUnits(view: View) {
+
+    }
+
+    /**
+     * Wywoływana w momencie kliknięcia jednego z widoków z nazwą jednostki.
+     */
+    private fun onHolderClick(upper: Boolean) {
+
+    }
+
+    /**
+     * Wywoływana, gdy kategoria jednostek zostanie wybrana.
+     */
+    override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
 
     }
 

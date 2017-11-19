@@ -14,7 +14,7 @@
 
         <include
             android:id="@+id/converter_unit_holder_1"
-            layout="@layout/unit_list_item"
+            layout="@layout/unit_holder"
             android:layout_width="0dp"
             android:layout_height="69dp"
             android:layout_marginEnd="8dp"
@@ -27,7 +27,7 @@
 
         <include
             android:id="@+id/converter_unit_holder_2"
-            layout="@layout/unit_list_item"
+            layout="@layout/unit_holder"
             android:layout_width="0dp"
             android:layout_height="66dp"
             android:layout_below="@id/converter_unit_holder_1"
