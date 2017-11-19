@@ -12,7 +12,7 @@ import android.support.annotation.StringRes
  * funkcje konwertujące. W takim wypadku parametr [converter] jest ignorowany.
  *
  * @param unitName nazwa jednostki
- * @param category opcjonalna kategoria jednostki
+ * @param system opcjonalna kategoria jednostki
  * @param symbol krótka nazwa, symbol jednostki
  * @param converter przelicznik jednostki (może być null, jeśli inna jednostka posiada tą jako przelicznik)
  * @param unitGroup grupa, do której należy jednostka
@@ -21,7 +21,7 @@ import android.support.annotation.StringRes
  */
 class Unit(
         @StringRes val unitName: Int,
-        val category: UnitCategory,
+        val system: UnitSystem,
         val symbol: String,
         val converter: String?,
         private val unitGroup: BaseUnitGroup,

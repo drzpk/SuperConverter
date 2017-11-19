@@ -7,7 +7,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import com.gitlab.drzepka.superconverter.unit.base.BaseUnitGroup
 import com.gitlab.drzepka.superconverter.unit.base.Unit
-import com.gitlab.drzepka.superconverter.unit.base.UnitCategory
+import com.gitlab.drzepka.superconverter.unit.base.UnitSystem
 
 class UnitConversionLayout : LinearLayout {
 
@@ -22,7 +22,7 @@ class UnitConversionLayout : LinearLayout {
             text.setText(value.toString())
             field = value
         }
-    var unit = Unit(0, UnitCategory.METRIC, "@", null, object : BaseUnitGroup() {})
+    var unit = Unit(0, UnitSystem.METRIC, "@", null, object : BaseUnitGroup() {})
         set(value) {
             unitText.text = value.symbol
             field = value

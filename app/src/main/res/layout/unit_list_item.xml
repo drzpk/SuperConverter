@@ -15,10 +15,10 @@
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/unit_list_item_category"
+        android:id="@+id/unit_list_item_system"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/unit_group_category_metric"
+        android:text="@string/unit_group_system_metric"
         android:textColor="@android:color/darker_gray"
         android:textSize="10sp"
         tools:ignore="SmallSp" />

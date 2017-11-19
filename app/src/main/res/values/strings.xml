@@ -15,8 +15,8 @@
     <string name="unit_type_temperature">Temperatura</string>
 
     <!-- BaseUnitGroup -->
-    <string name="unit_group_category_metric">System metryczny</string>
-    <string name="unit_group_category_english">Miary anglosaskie</string>
+    <string name="unit_group_system_metric">System metryczny</string>
+    <string name="unit_group_system_english">Miary anglosaskie</string>
 
     <!-- LengthUnitGroup -->
     <string name="unit_group_length_meter">Metr</string>

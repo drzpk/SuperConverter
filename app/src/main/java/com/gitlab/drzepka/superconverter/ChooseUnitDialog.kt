@@ -69,11 +69,11 @@ class ChooseUnitDialog : DialogFragment(), AdapterView.OnItemClickListener {
                 convertView
 
             val name = view.findViewById<TextView>(R.id.unit_list_item_name)
-            val category = view.findViewById<TextView>(R.id.unit_list_item_category)
+            val category = view.findViewById<TextView>(R.id.unit_list_item_system)
 
             val item = getItem(position)
             name.setText(item.unitName)
-            category.setText(item.category.systemName)
+            category.setText(item.system.systemName)
 
             return view
         }
