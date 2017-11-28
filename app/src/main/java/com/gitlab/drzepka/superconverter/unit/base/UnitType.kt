@@ -5,10 +5,12 @@ import android.support.annotation.StringRes
 import com.gitlab.drzepka.superconverter.R
 import com.gitlab.drzepka.superconverter.unit.LengthUnitGroup
 import com.gitlab.drzepka.superconverter.unit.MassUnitGroup
+import com.gitlab.drzepka.superconverter.unit.PressureUnitGroup
+import com.gitlab.drzepka.superconverter.unit.TimeUnitGroup
 
 enum class UnitType(@StringRes val unitName: Int, @DrawableRes val unitIcon: Int, val unitGroup: BaseUnitGroup? = null) {
-    PRESSURE(R.string.unit_type_pressure, R.drawable.unit_type_pressure),
-    TIME(R.string.unit_type_time, R.drawable.unit_type_time),
+    PRESSURE(R.string.unit_type_pressure, R.drawable.unit_type_pressure, PressureUnitGroup()),
+    TIME(R.string.unit_type_time, R.drawable.unit_type_time, TimeUnitGroup()),
     LENGTH(R.string.unit_type_length, R.drawable.unit_type_length, LengthUnitGroup()),
     ENERGY(R.string.unit_type_energy, R.drawable.unit_type_energy),
     QUANTITY(R.string.unit_type_quantity, R.drawable.unit_type_quantity),

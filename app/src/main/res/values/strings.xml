@@ -15,8 +15,30 @@
     <string name="unit_type_temperature">Temperatura</string>
 
     <!-- BaseUnitGroup -->
+    <string name="unit_group_system_default"> </string>
     <string name="unit_group_system_metric">System metryczny</string>
     <string name="unit_group_system_english">Miary anglosaskie</string>
+    <string name="unit_group_system_less_than_day">Mniej niż dzień</string>
+    <string name="unit_group_system_day_or_more">Dzień i więcej</string>
+
+    <!-- PressureUnitGroup -->
+    <string name="unit_group_pressure_pascal">Pascal</string>
+    <string name="unit_group_pressure_hpascal">Hektopascal</string>
+    <string name="unit_group_pressure_bar">Bar</string>
+    <string name="unit_group_pressure_npermm2">Newton/milimetr2</string>
+    <string name="unit_group_pressure_kgperm2">Kilogram/metr2</string>
+    <string name="unit_group_pressure_mmhg">Milimetry słupa rtęci</string>
+    <string name="unit_group_pressure_psi">psi</string>
+
+    <!-- TimeUnitGroup -->
+     <string name="unit_group_time_second">Sekunda</string>
+     <string name="unit_group_time_minute">Minuta</string>
+     <string name="unit_group_time_hour">Godzina</string>
+     <string name="unit_group_time_millisecond">Milisekunda</string>
+     <string name="unit_group_time_day">Dzień</string>
+     <string name="unit_group_time_week">Tydzień</string>
+     <string name="unit_group_time_month">Miesiąc</string>
+     <string name="unit_group_time_year">Rok</string>
 
     <!-- LengthUnitGroup -->
     <string name="unit_group_length_meter">Metr</string>
