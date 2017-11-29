@@ -19,7 +19,7 @@ class UnitHolderLayout : FrameLayout {
     var unit: Unit = Unit(0, UnitSystem.METRIC, "@", null, object : BaseUnitGroup() {})
         set(value) {
             name.setText(value.unitName)
-            system.setText(unit.system.systemName)
+            system.setText(value.system.systemName)
             field = value
         }
 }
