@@ -1,5 +1,6 @@
 package com.gitlab.drzepka.superconverter
 
+import android.animation.Animator
 import android.content.res.Configuration
 import android.os.Bundle
 import android.support.v4.view.GravityCompat
@@ -21,9 +22,11 @@ class ConverterActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
     private lateinit var lowerHolder: UnitHolderLayout
     private lateinit var leftUnit: UnitConversionLayout
     private lateinit var rightUnit: UnitConversionLayout
+    private lateinit var unitSwapper: View
 
     private lateinit var drawerAdapter: DrawerAdapter
     private lateinit var activeGroup: BaseUnitGroup
+    private var animatingSwap = false
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,6 +51,8 @@ class ConverterActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         lowerHolder = findViewById(R.id.converter_unit_holder_2)
         upperHolder.setOnClickListener { onHolderClick(true) }
         lowerHolder.setOnClickListener { onHolderClick(false) }
+
+        unitSwapper = findViewById(R.id.converter_unit_holder_swapper)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
@@ -90,6 +95,9 @@ class ConverterActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
      */
     @Suppress("UNUSED_PARAMETER")
     fun swapUnits(view: View?) {
+        if (animatingSwap)
+            return
+
         // zamiana holderów
         val tmp = upperHolder.unit
         upperHolder.unit = lowerHolder.unit
@@ -102,6 +110,23 @@ class ConverterActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         val tmpValue = leftUnit.value
         leftUnit.value = rightUnit.value
         rightUnit.value = tmpValue
+
+        // animacja przysicku do zmiany jednostek
+        unitSwapper.animate()
+                .rotationBy(180f)
+                .setDuration(350L)
+                .setListener(object : Animator.AnimatorListener {
+                    override fun onAnimationStart(animation: Animator?) {
+                        animatingSwap = true
+                    }
+
+                    override fun onAnimationEnd(animation: Animator?) {
+                        animatingSwap = false
+                    }
+
+                    override fun onAnimationRepeat(animation: Animator?) = Unit
+                    override fun onAnimationCancel(animation: Animator?) = Unit
+                })
     }
 
     /**
@@ -127,7 +152,8 @@ class ConverterActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
                 targetHolder.unit = chosen
                 targetUnitLayout.unit = chosen
                 updateConverson()
-            } else {
+            }
+            else {
                 // wybrana jednostka znajduje się w drugim holderze, wystarczy zamienić jednostki
                 swapUnits(null)
             }
@@ -142,7 +168,8 @@ class ConverterActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         if (unitType.unitGroup != null) {
             // nie wszystkie grupy mają dodane jednostki
             setActiveGroup(unitType.unitGroup)
-        } else
+        }
+        else
             Toast.makeText(this, "Ten typ jednostek nie jest jescze zaimplementowany", Toast.LENGTH_SHORT).show()
 
         drawerLayout.closeDrawer(GravityCompat.START)
