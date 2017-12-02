@@ -1,4 +1,4 @@
-package com.gitlab.drzepka.superconverter
+package com.gitlab.drzepka.superconverter.view
 
 import android.app.Activity
 import android.app.AlertDialog
@@ -9,6 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import com.gitlab.drzepka.superconverter.R
+import com.gitlab.drzepka.superconverter.Utils
 import com.gitlab.drzepka.superconverter.unit.base.BaseUnitGroup
 import com.gitlab.drzepka.superconverter.unit.base.Unit
 

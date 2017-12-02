@@ -14,6 +14,9 @@ import android.view.ViewGroup
 import android.widget.*
 import com.gitlab.drzepka.superconverter.unit.base.BaseUnitGroup
 import com.gitlab.drzepka.superconverter.unit.base.UnitType
+import com.gitlab.drzepka.superconverter.view.ChooseUnitDialog
+import com.gitlab.drzepka.superconverter.view.UnitConversionLayout
+import com.gitlab.drzepka.superconverter.view.UnitHolderLayout
 
 class ConverterActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
 

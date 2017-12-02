@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.gitlab.drzepka.superconverter.UnitHolderLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                    android:layout_width="match_parent"
-                                                    android:layout_height="wrap_content"
-                                                    android:background="@drawable/background_unit_holder"
-                                                    android:clickable="true"
-                                                    android:focusable="true">
+<com.gitlab.drzepka.superconverter.view.UnitHolderLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                         android:layout_width="match_parent"
+                                                         android:layout_height="wrap_content"
+                                                         android:background="@drawable/background_unit_holder"
+                                                         android:clickable="true"
+                                                         android:focusable="true">
 
     <include layout="@layout/unit_list_item" />
 
-</com.gitlab.drzepka.superconverter.UnitHolderLayout>
+</com.gitlab.drzepka.superconverter.view.UnitHolderLayout>

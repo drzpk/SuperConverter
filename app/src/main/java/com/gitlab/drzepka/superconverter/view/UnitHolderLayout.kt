@@ -1,9 +1,10 @@
-package com.gitlab.drzepka.superconverter
+package com.gitlab.drzepka.superconverter.view
 
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.FrameLayout
 import android.widget.TextView
+import com.gitlab.drzepka.superconverter.R
 import com.gitlab.drzepka.superconverter.unit.base.BaseUnitGroup
 import com.gitlab.drzepka.superconverter.unit.base.Unit
 import com.gitlab.drzepka.superconverter.unit.base.UnitSystem
