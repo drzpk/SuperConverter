@@ -1,6 +1,7 @@
 package com.gitlab.drzepka.superconverter
 
 import android.animation.Animator
+import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
 import android.support.v4.view.GravityCompat
@@ -27,6 +28,7 @@ class ConverterActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
     private lateinit var drawerAdapter: DrawerAdapter
     private lateinit var activeGroup: BaseUnitGroup
     private var animatingSwap = false
+    private var startGroupIndex = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,14 +59,28 @@ class ConverterActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
-        // ustawienie pierwszej grupy jako aktywnej
-        // TODO: przywracanie aktywnej grupy i jednostek z pamięci (saveInstanceState i sharedPreferences)
-        setActiveGroup(UnitType.values().first { it.unitGroup != null }.unitGroup!!)
+        // Pobranie indeksu aktywnej grupy z konfiguracji
+        val prefs = getSharedPreferences("prefs", Context.MODE_PRIVATE)
+        startGroupIndex = Math.min(prefs.getInt("unit_group", 0), UnitType.values().size)
+        if (UnitType.values()[startGroupIndex].unitGroup == null)
+            startGroupIndex = UnitType.values().indexOfFirst { it.unitGroup != null }
+        setActiveGroup(UnitType.values()[startGroupIndex].unitGroup!!)
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?) {
         super.onPostCreate(savedInstanceState)
         drawerToggle.syncState()
+    }
+
+    override fun onStop() {
+        super.onStop()
+
+        // Zapisanie indeksu, jeśli został zmieniony
+        val newIndex = UnitType.values().indexOfFirst { it.unitGroup == activeGroup }
+        if (startGroupIndex != newIndex) {
+            val prefs = getSharedPreferences("prefs", Context.MODE_PRIVATE)
+            prefs.edit().putInt("unit_group", newIndex).apply()
+        }
     }
 
     override fun onConfigurationChanged(newConfig: Configuration?) {
