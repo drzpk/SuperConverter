@@ -20,6 +20,8 @@
     <string name="unit_group_system_english">Miary anglosaskie</string>
     <string name="unit_group_system_less_than_day">Mniej niż dzień</string>
     <string name="unit_group_system_day_or_more">Dzień i więcej</string>
+    <string name="unit_group_system_calories">Kalorie</string>
+    <string name="unit_group_system_atomic">Atomowe</string>
 
     <!-- PressureUnitGroup -->
     <string name="unit_group_pressure_pascal">Pascal</string>
@@ -52,6 +54,22 @@
     <string name="unit_group_mass_ton">Tona</string>
     <string name="unit_group_mass_pound">Funt</string>
     <string name="unit_group_mass_ounce">Uncja</string>
+
+    <!-- EnergyUnitGroup -->
+    <string name="unit_group_energy_joul">Dżul</string>
+    <string name="unit_group_energy_kjoul">Kilodżul</string>
+    <string name="unit_group_energy_wh">Watogodzina</string>
+    <string name="unit_group_energy_kwh">Kilowatogodzina</string>
+    <string name="unit_group_energy_cal">Kaloria</string>
+    <string name="unit_group_energy_kcal">Kilokaloria</string>
+
+    <!-- QuantityUnitGroup -->
+    <string name="unit_group_quantity_piece">Sztuka</string>
+    <string name="unit_group_quantity_dozen">Tuzin</string>
+    <string name="unit_group_quantity_mendel">Mendel</string>
+    <string name="unit_group_quantity_cmendel">Mendel chłopski</string>
+    <string name="unit_group_quantity_kopa">Kopa</string>
+    <string name="unit_group_quantity_gros">Gros</string>
 
     <!-- ChooseUnitDialog -->
     <string name="choose_unit_dialog_title">Wybierz nową jednostkę</string>
