@@ -34,14 +34,14 @@
     <string name="unit_group_pressure_psi">psi</string>
 
     <!-- TimeUnitGroup -->
-     <string name="unit_group_time_second">Sekunda</string>
-     <string name="unit_group_time_minute">Minuta</string>
-     <string name="unit_group_time_hour">Godzina</string>
-     <string name="unit_group_time_millisecond">Milisekunda</string>
-     <string name="unit_group_time_day">Dzień</string>
-     <string name="unit_group_time_week">Tydzień</string>
-     <string name="unit_group_time_month">Miesiąc</string>
-     <string name="unit_group_time_year">Rok</string>
+    <string name="unit_group_time_second">Sekunda</string>
+    <string name="unit_group_time_minute">Minuta</string>
+    <string name="unit_group_time_hour">Godzina</string>
+    <string name="unit_group_time_millisecond">Milisekunda</string>
+    <string name="unit_group_time_day">Dzień</string>
+    <string name="unit_group_time_week">Tydzień</string>
+    <string name="unit_group_time_month">Miesiąc</string>
+    <string name="unit_group_time_year">Rok</string>
 
     <!-- LengthUnitGroup -->
     <string name="unit_group_length_meter">Metr</string>
@@ -81,6 +81,20 @@
     <string name="unit_group_volume_quart">Kwarta</string>
     <string name="unit_group_volume_gallon">Galon</string>
     <string name="unit_group_volume_bushel">Buszel</string>
+
+    <!-- AreaUnitGroup -->
+    <string name="unit_group_area_sqmeter">Metr kwardarowy</string>
+    <string name="unit_group_area_sqcentimeter">Centrymetr kwardatowy</string>
+    <string name="unit_group_area_ar">Ar</string>
+    <string name="unit_group_area_ha">Hektar</string>
+
+    <!-- SpeedUnitGroup -->
+    <string name="unit_group_speed_ms">Metr na sekundę</string>
+    <string name="unit_group_speed_kmh">Kilometr na godzinę</string>
+    <string name="unit_group_speed_mach">Mach</string>
+    <string name="unit_group_speed_mph">Mila na godzinę</string>
+    <string name="unit_group_speed_mps">Mila na sekundę</string>
+    <string name="unit_group_speed_knot">Węzeł</string>
 
     <!-- ChooseUnitDialog -->
     <string name="choose_unit_dialog_title">Wybierz nową jednostkę</string>
