@@ -18,6 +18,7 @@
     <string name="unit_group_system_default"> </string>
     <string name="unit_group_system_metric">System metryczny</string>
     <string name="unit_group_system_english">Miary anglosaskie</string>
+    <string name="unit_group_system_imperial">Miary imperialne</string>
     <string name="unit_group_system_less_than_day">Mniej niż dzień</string>
     <string name="unit_group_system_day_or_more">Dzień i więcej</string>
     <string name="unit_group_system_calories">Kalorie</string>
@@ -70,6 +71,16 @@
     <string name="unit_group_quantity_cmendel">Mendel chłopski</string>
     <string name="unit_group_quantity_kopa">Kopa</string>
     <string name="unit_group_quantity_gros">Gros</string>
+
+    <!-- VolumeUnitGroup -->
+    <string name="unit_group_volume_liter">Litr</string>
+    <string name="unit_group_volume_mliter">Mililitr</string>
+    <string name="unit_group_volume_cubmeter">Metr sześcienny</string>
+    <string name="unit_group_volume_ounce">Uncja</string>
+    <string name="unit_group_volume_pint">Pinta</string>
+    <string name="unit_group_volume_quart">Kwarta</string>
+    <string name="unit_group_volume_gallon">Galon</string>
+    <string name="unit_group_volume_bushel">Buszel</string>
 
     <!-- ChooseUnitDialog -->
     <string name="choose_unit_dialog_title">Wybierz nową jednostkę</string>

@@ -12,7 +12,7 @@ enum class UnitType(@StringRes val unitName: Int, @DrawableRes val unitIcon: Int
     ENERGY(R.string.unit_type_energy, R.drawable.unit_type_energy, EnergyUnitGroup()),
     QUANTITY(R.string.unit_type_quantity, R.drawable.unit_type_quantity, QuantityUnitGroup()),
     MASS(R.string.unit_type_mass, R.drawable.unit_type_mass, MassUnitGroup()),
-    VOLUME(R.string.unit_type_volume, R.drawable.unit_type_volume),
+    VOLUME(R.string.unit_type_volume, R.drawable.unit_type_volume, VolumeUnitGroup()),
     AREA(R.string.unit_type_area, R.drawable.unit_type_area),
     SPEED(R.string.unit_type_speed, R.drawable.unit_type_speed),
     DATA(R.string.unit_type_data, R.drawable.unit_type_data),
