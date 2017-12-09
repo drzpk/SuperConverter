@@ -62,7 +62,12 @@ class Unit(
      *  Konwetuje tą jednostkę na inną.
      */
     fun convert(to: Unit, value: Double): Double {
-        val half = customConverterFrom?.invoke(value) ?: value * masterRatio
-        return to.customConverterTo?.invoke(half) ?: half / to.masterRatio
+        val half = customConverterTo?.invoke(value) ?: value * masterRatio
+        return to.customConverterFrom?.invoke(half) ?: half / to.masterRatio
     }
+
+    /**
+     * Sprawdza, czy jednostka posiada własne konwertery i zwraca status.
+     */
+    fun hasCustomConverters(): Boolean = customConverterFrom != null
 }

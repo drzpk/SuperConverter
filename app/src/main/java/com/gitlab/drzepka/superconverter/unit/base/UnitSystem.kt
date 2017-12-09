@@ -10,5 +10,7 @@ enum class UnitSystem(@StringRes val systemName: Int) {
     IMPERIAL(R.string.unit_group_system_imperial),
     DAY_OR_LESS(R.string.unit_group_system_less_than_day),
     MORE_THAN_DAY(R.string.unit_group_system_day_or_more),
-    CALORIES(R.string.unit_group_system_calories)
+    CALORIES(R.string.unit_group_system_calories),
+    DECIMAL(R.string.unit_group_system_decimal),
+    BINARY(R.string.unit_group_system_binary)
 }

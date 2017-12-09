@@ -23,6 +23,8 @@
     <string name="unit_group_system_day_or_more">Dzień i więcej</string>
     <string name="unit_group_system_calories">Kalorie</string>
     <string name="unit_group_system_atomic">Atomowe</string>
+    <string name="unit_group_system_decimal">Przedrostki dziesiętne</string>
+    <string name="unit_group_system_binary">Przedrostki binarne</string>
 
     <!-- PressureUnitGroup -->
     <string name="unit_group_pressure_pascal">Pascal</string>
@@ -95,6 +97,25 @@
     <string name="unit_group_speed_mph">Mila na godzinę</string>
     <string name="unit_group_speed_mps">Mila na sekundę</string>
     <string name="unit_group_speed_knot">Węzeł</string>
+
+    <!-- DataUnitGroup -->
+    <string name="unit_group_data_bit">Bit</string>
+    <string name="unit_group_data_byte">Bajt</string>
+    <string name="unit_group_data_kbyte">Kilobajt</string>
+    <string name="unit_group_data_mbyte">Megabajt</string>
+    <string name="unit_group_data_gbyte">Gigabajt</string>
+    <string name="unit_group_data_tbyte">Terabajt</string>
+    <string name="unit_group_data_pbyte">Petabajt</string>
+    <string name="unit_group_data_kibyte">Kibibajt</string>
+    <string name="unit_group_data_mibyte">Mebibajt</string>
+    <string name="unit_group_data_gibyte">Gibibajt</string>
+    <string name="unit_group_data_tibyte">Tebibajt</string>
+    <string name="unit_group_data_pibyte">Pebibajt</string>
+
+    <!-- TemperatureUnitGroup -->
+    <string name="unit_group_temperature_celsius">Stopnie Celsjusza</string>
+    <string name="unit_group_temperature_fahrenheit">Stopnie Fahrenheita</string>
+    <string name="unit_group_temperature_kelvin">Kelviny</string>
 
     <!-- ChooseUnitDialog -->
     <string name="choose_unit_dialog_title">Wybierz nową jednostkę</string>
