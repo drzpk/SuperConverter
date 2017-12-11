@@ -12,6 +12,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import com.gitlab.drzepka.superconverter.unit.CurrencyUnitGroup
 import com.gitlab.drzepka.superconverter.unit.base.BaseUnitGroup
 import com.gitlab.drzepka.superconverter.unit.base.UnitType
 import com.gitlab.drzepka.superconverter.view.ChooseUnitDialog
@@ -61,6 +62,10 @@ class ConverterActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
+
+        // Inicjalizacja przelicznika walut
+        val group = UnitType.values().firstOrNull { it.unitGroup is CurrencyUnitGroup }?.unitGroup
+        (group as? CurrencyUnitGroup)?.initialize(this)
 
         // Pobranie indeksu aktywnej grupy z konfiguracji
         val prefs = getSharedPreferences("prefs", Context.MODE_PRIVATE)

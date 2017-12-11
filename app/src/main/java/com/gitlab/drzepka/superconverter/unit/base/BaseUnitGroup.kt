@@ -6,15 +6,17 @@ package com.gitlab.drzepka.superconverter.unit.base
 abstract class BaseUnitGroup {
 
     /** Jednostki dostępne w tej grupie. */
-    val units = ArrayList<Unit>()
+    val units = ArrayList<BaseUnit>()
 
     /**
      * Dodaje nową jednostkę do grupy.
      */
-    protected fun addUnit(unit: Unit) {
-        if (units.isNotEmpty() && unit.converter == null && !unit.hasCustomConverters())
-            throw IllegalArgumentException("Tylko jednostka będąca punktem odniesienia może nie posiadać przelicznika")
+    protected fun addUnit(baseUnit: BaseUnit) {
+        if (baseUnit is Unit) {
+            if (units.isNotEmpty() && baseUnit.converter == null && !baseUnit.hasCustomConverters())
+                throw IllegalArgumentException("Tylko jednostka będąca punktem odniesienia może nie posiadać przelicznika")
+        }
 
-        units.add(unit)
+        units.add(baseUnit)
     }
 }

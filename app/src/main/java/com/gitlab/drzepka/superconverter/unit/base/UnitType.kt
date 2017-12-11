@@ -16,5 +16,6 @@ enum class UnitType(@StringRes val unitName: Int, @DrawableRes val unitIcon: Int
     AREA(R.string.unit_type_area, R.drawable.unit_type_area, AreaUnitGroup()),
     SPEED(R.string.unit_type_speed, R.drawable.unit_type_speed, SpeedUnitGroup()),
     DATA(R.string.unit_type_data, R.drawable.unit_type_data, DataUnitGroup()),
-    TEMPERATURE(R.string.unit_type_temperature, R.drawable.unit_type_temperature, TemperatureUnitGroup())
+    TEMPERATURE(R.string.unit_type_temperature, R.drawable.unit_type_temperature, TemperatureUnitGroup()),
+    CURRENCY(R.string.unit_type_currency, R.drawable.unit_type_currency, CurrencyUnitGroup())
 }

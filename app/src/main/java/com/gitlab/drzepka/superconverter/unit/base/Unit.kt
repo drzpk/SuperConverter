@@ -1,7 +1,5 @@
 package com.gitlab.drzepka.superconverter.unit.base
 
-import android.support.annotation.StringRes
-
 /**
  * Reprezentacja jednostki. Najważniejszym parametrem jednostki jest jej przelicnzik - parametr [converter].
  * Opisuje on, jaki jest stosunek tej jednoski do innej. Forma przelicznika jest następjąca:
@@ -20,13 +18,13 @@ import android.support.annotation.StringRes
  * @param customConverterTo dedykowana funkcja konwertująca tą jednostkę na **punkt odniesienia**
  */
 class Unit(
-        @StringRes val unitName: Int,
-        val system: UnitSystem,
-        val symbol: String,
+        unitName: Int,
+        system: UnitSystem,
+        symbol: String,
         val converter: String?,
         private val unitGroup: BaseUnitGroup,
         private val customConverterFrom: ((Double) -> Double)? = null,
-        private val customConverterTo: ((Double) -> Double)? = null) {
+        private val customConverterTo: ((Double) -> Double)? = null) : BaseUnit(unitName, system, symbol) {
 
     /** Przelicznik względem głównej jednostki */
     private val masterRatio = initialize()
@@ -55,13 +53,17 @@ class Unit(
                 throw IllegalStateException("nie znaleziono jednoski wskazanej w przeliczniku" +
                         "(obiekt: $unitName, jednostka przelicznika: ${parts.last()})")
 
+        @Suppress("FoldInitializerAndIfToElvis")
+        if (remoteUnit !is Unit)
+            throw IllegalStateException("niepoprawny typ jednostki")
+
         return value * remoteUnit.masterRatio
     }
 
-    /**
-     *  Konwetuje tą jednostkę na inną.
-     */
-    fun convert(to: Unit, value: Double): Double {
+    override fun convert(to: BaseUnit, value: Double): Double {
+        if (to !is Unit)
+            throw IllegalStateException("niepoprawny typ jednostki: oczekiwano: Unit")
+
         val half = customConverterTo?.invoke(value) ?: value * masterRatio
         return to.customConverterFrom?.invoke(half) ?: half / to.masterRatio
     }

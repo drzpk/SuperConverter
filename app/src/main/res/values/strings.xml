@@ -13,6 +13,7 @@
     <string name="unit_type_speed">Prędkość</string>
     <string name="unit_type_data">Jednostki danych</string>
     <string name="unit_type_temperature">Temperatura</string>
+    <string name="unit_type_currency">Waluta</string>
 
     <!-- BaseUnitGroup -->
     <string name="unit_group_system_default"> </string>
@@ -116,6 +117,22 @@
     <string name="unit_group_temperature_celsius">Stopnie Celsjusza</string>
     <string name="unit_group_temperature_fahrenheit">Stopnie Fahrenheita</string>
     <string name="unit_group_temperature_kelvin">Kelviny</string>
+
+    <!-- CurrencyUnitGroup -->
+    <string name="unit_group_currency_pln">Polski złoty</string>
+    <string name="unit_group_currency_usd">Dolar amerykański</string>
+    <string name="unit_group_currency_aud">Dolar australijski</string>
+    <string name="unit_group_currency_cad">Dolar kanadyjski</string>
+    <string name="unit_group_currency_eur">Euro</string>
+    <string name="unit_group_currency_huf">Forint (Węgry)</string>
+    <string name="unit_group_currency_uah">Hrywna (Ukraina)</string>
+    <string name="unit_group_currency_jpy">Jen (Japonia)</string>
+    <string name="unit_group_currency_mxn">Peso meksykańskie</string>
+    <string name="unit_group_currency_rub">Rubel rosyjski</string>
+    <string name="unit_group_currency_cny">Yuan Renminbi (Chiny)</string>
+    <string name="unit_group_currency_inr">Rupia indyjska</string>
+    <string name="unit_group_currency_sek">Korona szwedzka</string>
+    <string name="unit_group_currency_nok">Korona norweska</string>
 
     <!-- ChooseUnitDialog -->
     <string name="choose_unit_dialog_title">Wybierz nową jednostkę</string>

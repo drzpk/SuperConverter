@@ -11,14 +11,14 @@ import android.view.ViewGroup
 import android.widget.*
 import com.gitlab.drzepka.superconverter.R
 import com.gitlab.drzepka.superconverter.Utils
+import com.gitlab.drzepka.superconverter.unit.base.BaseUnit
 import com.gitlab.drzepka.superconverter.unit.base.BaseUnitGroup
-import com.gitlab.drzepka.superconverter.unit.base.Unit
 
 class ChooseUnitDialog : DialogFragment(), AdapterView.OnItemClickListener {
 
     private lateinit var list: ListView
     private lateinit var adapter: DialogListAdapter
-    private lateinit var onChooseListener: (unit: Unit) -> kotlin.Unit
+    private lateinit var onChooseListener: (unit: BaseUnit) -> kotlin.Unit
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         // tworzenie widoku
@@ -50,7 +50,7 @@ class ChooseUnitDialog : DialogFragment(), AdapterView.OnItemClickListener {
      * @param excluded aktualnie wybrana jednostka, która ma być wykluczona z listy
      * @param onChoose metoda, która będzie wywołana, gdy jednostka zostanie wybrana
      */
-    fun show(activity: Activity, unitGroup: BaseUnitGroup, excluded: Unit, onChoose: (unit: Unit) -> kotlin.Unit) {
+    fun show(activity: Activity, unitGroup: BaseUnitGroup, excluded: BaseUnit, onChoose: (unit: BaseUnit) -> kotlin.Unit) {
         adapter = DialogListAdapter()
         adapter.list.addAll(unitGroup.units.filterNot { it.unitName == excluded.unitName && it.symbol == excluded.symbol })
 
@@ -60,7 +60,7 @@ class ChooseUnitDialog : DialogFragment(), AdapterView.OnItemClickListener {
 
     private inner class DialogListAdapter : BaseAdapter() {
 
-        val list = ArrayList<Unit>()
+        val list = ArrayList<BaseUnit>()
 
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
             val view = if (convertView == null) {
@@ -80,7 +80,7 @@ class ChooseUnitDialog : DialogFragment(), AdapterView.OnItemClickListener {
             return view
         }
 
-        override fun getItem(position: Int): Unit = list[position]
+        override fun getItem(position: Int): BaseUnit = list[position]
         override fun getItemId(position: Int): Long = 0
         override fun getCount(): Int = list.size
     }
