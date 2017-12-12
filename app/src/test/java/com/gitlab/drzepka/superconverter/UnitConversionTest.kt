@@ -1,6 +1,6 @@
 package com.gitlab.drzepka.superconverter
 
-import com.gitlab.drzepka.superconverter.unit.base.Unit
+import com.gitlab.drzepka.superconverter.unit.base.BaseUnit
 import com.gitlab.drzepka.superconverter.unit.base.UnitType
 import org.junit.Assert
 import org.junit.Test
@@ -59,7 +59,7 @@ class UnitConversionTest {
     /**
      * Sprawdza, czy dana wartość mieści się marginesie błędu (błąd bezwzględny).
      */
-    private fun checkValue(firstUnit: Unit, secondUnit: Unit, value: Double, expected: Double) {
+    private fun checkValue(firstUnit: BaseUnit, secondUnit: BaseUnit, value: Double, expected: Double) {
         // Wyniki są porównywane tylko do określonego rozwinięcia dziesiętnego
         val divisor = Math.pow(10.0, MAX_DECIMAL_LENGTH.toDouble())
         val converted = Math.round(firstUnit.convert(secondUnit, value) * divisor) / divisor
@@ -75,8 +75,8 @@ class UnitConversionTest {
 
     }
 
-    private fun getUnitBySymbol(symbol: String, unitType: UnitType): Unit {
-        val unit = unitType.unitGroup?.units?.firstOrNull { it.symbol == symbol }
+    private fun getUnitBySymbol(symbol: String, unitType: UnitType): BaseUnit {
+        val unit = unitType.unitGroup.units.firstOrNull { it.symbol == symbol }
         Assert.assertNotNull("Nie znaleziono symbolu $symbol w grupie ${unitType.name}")
 
         return unit!!

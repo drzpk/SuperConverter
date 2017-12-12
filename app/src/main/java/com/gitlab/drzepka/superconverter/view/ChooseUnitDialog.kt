@@ -12,7 +12,8 @@ import android.widget.*
 import com.gitlab.drzepka.superconverter.R
 import com.gitlab.drzepka.superconverter.Utils
 import com.gitlab.drzepka.superconverter.unit.base.BaseUnit
-import com.gitlab.drzepka.superconverter.unit.base.BaseUnitGroup
+import com.gitlab.drzepka.superconverter.unit.base.UnitSystem
+import com.gitlab.drzepka.superconverter.unit.base.UnitType
 
 class ChooseUnitDialog : DialogFragment(), AdapterView.OnItemClickListener {
 
@@ -46,21 +47,20 @@ class ChooseUnitDialog : DialogFragment(), AdapterView.OnItemClickListener {
     /**
      * Wyświetla dialog.
      * @param activity aktywność, z której został wywołany dialog
-     * @param unitGroup grupa jednostek, z której ma być wygenerowana lista
+     * @param unitType typ jednostek, z którego ma być wygenerowana lista
      * @param excluded aktualnie wybrana jednostka, która ma być wykluczona z listy
      * @param onChoose metoda, która będzie wywołana, gdy jednostka zostanie wybrana
      */
-    fun show(activity: Activity, unitGroup: BaseUnitGroup, excluded: BaseUnit, onChoose: (unit: BaseUnit) -> kotlin.Unit) {
-        adapter = DialogListAdapter()
-        adapter.list.addAll(unitGroup.units.filterNot { it.unitName == excluded.unitName && it.symbol == excluded.symbol })
+    fun show(activity: Activity, unitType: UnitType, excluded: BaseUnit, onChoose: (unit: BaseUnit) -> kotlin.Unit) {
+        val list = ArrayList<BaseUnit>()
+        list.addAll(unitType.unitGroup.units.filterNot { it.unitName == excluded.unitName && it.symbol == excluded.symbol })
+        adapter = DialogListAdapter(list, unitType)
 
         onChooseListener = onChoose
         show(activity.fragmentManager, "ChooseUnitDialog")
     }
 
-    private inner class DialogListAdapter : BaseAdapter() {
-
-        val list = ArrayList<BaseUnit>()
+    private inner class DialogListAdapter(val list: ArrayList<BaseUnit>, val unitType: UnitType) : BaseAdapter() {
 
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
             val view = if (convertView == null) {
@@ -75,7 +75,10 @@ class ChooseUnitDialog : DialogFragment(), AdapterView.OnItemClickListener {
 
             val item = getItem(position)
             name.setText(item.unitName)
-            category.setText(item.system.systemName)
+            if (item.system != UnitSystem.DEFAULT)
+                category.setText(item.system.systemName)
+            else
+                category.setText(unitType.unitName)
 
             return view
         }

@@ -13,7 +13,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import com.gitlab.drzepka.superconverter.unit.CurrencyUnitGroup
-import com.gitlab.drzepka.superconverter.unit.base.BaseUnitGroup
 import com.gitlab.drzepka.superconverter.unit.base.UnitType
 import com.gitlab.drzepka.superconverter.view.ChooseUnitDialog
 import com.gitlab.drzepka.superconverter.view.UnitConversionLayout
@@ -30,9 +29,9 @@ class ConverterActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
     private lateinit var unitSwapper: View
 
     private lateinit var drawerAdapter: DrawerAdapter
-    private lateinit var activeGroup: BaseUnitGroup
+    private lateinit var activeType: UnitType
     private var animatingSwap = false
-    private var startGroupIndex = 0
+    private var startTypeIndex = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,10 +68,10 @@ class ConverterActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
 
         // Pobranie indeksu aktywnej grupy z konfiguracji
         val prefs = getSharedPreferences("prefs", Context.MODE_PRIVATE)
-        startGroupIndex = Math.min(prefs.getInt("unit_group", 0), UnitType.values().size)
-        if (UnitType.values()[startGroupIndex].unitGroup == null)
-            startGroupIndex = UnitType.values().indexOfFirst { it.unitGroup != null }
-        setActiveGroup(UnitType.values()[startGroupIndex].unitGroup!!)
+        startTypeIndex = Math.min(prefs.getInt("unit_group", 0), UnitType.values().size)
+        if (UnitType.values().size >= startTypeIndex)
+            startTypeIndex = 0
+        setActiveType(UnitType.values()[startTypeIndex])
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?) {
@@ -84,8 +83,8 @@ class ConverterActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         super.onStop()
 
         // Zapisanie indeksu, jeśli został zmieniony
-        val newIndex = UnitType.values().indexOfFirst { it.unitGroup == activeGroup }
-        if (startGroupIndex != newIndex) {
+        val newIndex = UnitType.values().indexOfFirst { it == activeType }
+        if (startTypeIndex != newIndex) {
             val prefs = getSharedPreferences("prefs", Context.MODE_PRIVATE)
             prefs.edit().putInt("unit_group", newIndex).apply()
         }
@@ -103,14 +102,16 @@ class ConverterActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun setActiveGroup(unitGroup: BaseUnitGroup) {
-        activeGroup = unitGroup
+    private fun setActiveType(unitType: UnitType) {
+        activeType = unitType
 
         // wybranie dwóch pierwszych jednostek z grupy jako aktywnych
-        upperHolder.unit = unitGroup.units[0]
-        lowerHolder.unit = unitGroup.units[1]
-        leftUnit.unit = unitGroup.units[0]
-        rightUnit.unit = unitGroup.units[1]
+        upperHolder.currentType = unitType
+        lowerHolder.currentType = unitType
+        upperHolder.unit = unitType.unitGroup.units[0]
+        lowerHolder.unit = unitType.unitGroup.units[1]
+        leftUnit.unit = unitType.unitGroup.units[0]
+        rightUnit.unit = unitType.unitGroup.units[1]
         updateConverson()
     }
 
@@ -170,7 +171,7 @@ class ConverterActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         val targetUnitLayout = if (upper) leftUnit else rightUnit
         val otherUnit = (if (upper) lowerHolder else upperHolder).unit
 
-        ChooseUnitDialog().show(this, activeGroup, excluded, { chosen ->
+        ChooseUnitDialog().show(this, activeType, excluded, { chosen ->
             if (chosen != otherUnit) {
                 // normalna zmiana jednostek
                 targetHolder.unit = chosen
@@ -188,14 +189,7 @@ class ConverterActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
      * Wywoływana, gdy kategoria jednostek zostanie wybrana.
      */
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        val unitType = UnitType.values()[position]
-        if (unitType.unitGroup != null) {
-            // nie wszystkie grupy mają dodane jednostki
-            setActiveGroup(unitType.unitGroup)
-        }
-        else
-            Toast.makeText(this, "Ten typ jednostek nie jest jescze zaimplementowany", Toast.LENGTH_SHORT).show()
-
+        setActiveType(UnitType.values()[position])
         drawerLayout.closeDrawer(GravityCompat.START)
     }
 

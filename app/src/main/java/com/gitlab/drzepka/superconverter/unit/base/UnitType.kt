@@ -5,7 +5,7 @@ import android.support.annotation.StringRes
 import com.gitlab.drzepka.superconverter.R
 import com.gitlab.drzepka.superconverter.unit.*
 
-enum class UnitType(@StringRes val unitName: Int, @DrawableRes val unitIcon: Int, val unitGroup: BaseUnitGroup? = null) {
+enum class UnitType(@StringRes val unitName: Int, @DrawableRes val unitIcon: Int, val unitGroup: BaseUnitGroup) {
     PRESSURE(R.string.unit_type_pressure, R.drawable.unit_type_pressure, PressureUnitGroup()),
     TIME(R.string.unit_type_time, R.drawable.unit_type_time, TimeUnitGroup()),
     LENGTH(R.string.unit_type_length, R.drawable.unit_type_length, LengthUnitGroup()),
